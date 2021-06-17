@@ -18,7 +18,8 @@ start-watchtower :
                 --name watchtower \
                 -v /var/run/docker.sock:/var/run/docker.sock \
                 containrrr/watchtower \
-                --interval 30
+                --interval 30 \
+				--cleanup
 
 stop-watchtower :
 				docker stop watchtower
