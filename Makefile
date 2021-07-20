@@ -1,24 +1,26 @@
+compose = docker-compose
+
 build :
-				docker compose build
+				${compose} build
 
 start :
-				docker compose up -d
+				${compose} up -d
 
 stop :
-				docker compose down
+				${compose} down
 				
 debug :
-				docker compose --verbose up
+				${compose} --verbose up
 
 reload:
-				docker compose down && docker compose up
+				${compose} down && ${compose} up
 
 start-watchtower :
 				docker run -d \
-                --name watchtower \
-                -v /var/run/docker.sock:/var/run/docker.sock \
-                containrrr/watchtower \
-                --interval 30 \
+                		--name watchtower \
+                		-v /var/run/docker.sock:/var/run/docker.sock \
+                		containrrr/watchtower \
+                		--interval 30 \
 				--cleanup
 
 stop-watchtower :
