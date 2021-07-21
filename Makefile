@@ -16,12 +16,7 @@ reload:
 				${compose} down && ${compose} up
 
 start-watchtower :
-				docker run -d \
-                		--name watchtower \
-                		-v /var/run/docker.sock:/var/run/docker.sock \
-                		containrrr/watchtower \
-                		--interval 30 \
-				--cleanup
+				docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --interval 30 --cleanup
 
 stop-watchtower :
 				docker stop watchtower
